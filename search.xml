@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2025/02/16/hello-world/</url>
+    <url>/2025/02/14/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
 
@@ -27,27 +27,35 @@
   <entry>
     <title>使用 GitHub Action 自动部署 Hexo</title>
     <url>/2025/02/16/hexo-github-action/</url>
-    <content><![CDATA[<h3 id="创建并初始化Hexo项目"><a href="#创建并初始化Hexo项目" class="headerlink" title="创建并初始化Hexo项目"></a>创建并初始化Hexo项目</h3><p>如果你没有Hexo,点击可查看<a href="/2025/02/15/hexo-install/">新建Hexo项目</a></p>
-<h3 id="创建Github-SSH密钥"><a href="#创建Github-SSH密钥" class="headerlink" title="创建Github SSH密钥"></a>创建Github SSH密钥</h3><p>Github已不再支持HTTP PUSH,点击可查看<a href="/2025/02/15/hexo-install/">生成SSH秘钥并上传至GitHub</a></p>
-<h3 id="在-GitHub-上添加部署-Action-私钥"><a href="#在-GitHub-上添加部署-Action-私钥" class="headerlink" title="在 GitHub 上添加部署 Action 私钥"></a>在 GitHub 上添加部署 Action 私钥</h3><ul>
-<li><p>在GItHub中创建一个代码仓库(可选择Private)</p>
+    <content><![CDATA[<h2 id="创建并初始化Hexo项目"><a href="#创建并初始化Hexo项目" class="headerlink" title="创建并初始化Hexo项目"></a>创建并初始化Hexo项目</h2><p>如果你没有Hexo,点击可查看<a href="/2025/02/15/hexo-install/">新建Hexo项目</a></p>
+<h2 id="创建Github-SSH密钥"><a href="#创建Github-SSH密钥" class="headerlink" title="创建Github SSH密钥"></a>创建Github SSH密钥</h2><p>Github已不再支持HTTP PUSH,点击可查看<a href="/2025/02/15/hexo-install/">生成SSH秘钥并上传至GitHub</a></p>
+<h2 id="在-GitHub-上添加部署-Action-私钥"><a href="#在-GitHub-上添加部署-Action-私钥" class="headerlink" title="在 GitHub 上添加部署 Action 私钥"></a>在 GitHub 上添加部署 Action 私钥</h2><ol>
+<li><p>在GItHub中创建2个代码仓库,一个为私密仓库用于存放Hexo源码,一个为公开仓库用于存放Hexo编译后的静态文件。</p>
 </li>
-<li><p>在 GitHub 仓库里，进入 <code>Settings</code> -&gt; <code>Deploy keys</code> -&gt; <code>Add deploy key</code> 页面。在 <code>Title</code>随便输入一个名称,例如<code>HEXO_DEPLOY_KEY</code>,将公钥粘贴到 <code>Key</code> 文本框中,并且选择<code>Allow write access</code>。</p>
+<li><p>现在需要创建一个令牌,从 Hexo 代码仓库中运行 Github Actions 向 username.github.io 仓库推送代码。</p>
 </li>
-</ul>
-
-  <div class="note p-4 mb-4 rounded-small danger">
-    <ul>
-<li>如果出现<code>Key is already in use</code>则需要多创建一个密钥</li>
-</ul>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your email&quot;</span> <span class="comment"># (建议使用GitHub注册时候用的email)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#运行后会提示输入新的本地key的名称,这里名为github_hexo</span></span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): github_hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后再运行，会提示设置密码直接回车就行</span></span><br></pre></td></tr></table></figure></div>
+</ol>
 <ul>
-<li>接下来将<code>github_hexo.pub</code>的内容重新安装上面的步骤上传</li>
+<li><p>选择右上角头像 -&gt; 打开 <code>Settings</code> -&gt; 左边栏最后面找到 <code>Develop Setting</code>。</p>
+</li>
+<li><p>找到 <code>Personal Access Token</code> 点击 <code>Tokens(classic)</code> -&gt; 选择 <code>Generate new token (classic)</code>。</p>
+</li>
+<li><p>在<code>Note</code>写入备注 -&gt; <code>Expiration</code>可选永不过期<code>No expiration</code> -&gt; 给 <code>repo</code> 里面的全部访问权限，然后<button style="background-color: #4CAF50;padding: 3px 12px;font-size: 12px;line-height: 20px;border-radius: 6px;">Generate token</button>生成一个令牌。(生成后只会显示一次，请妥善保存)</p>
+</li>
+<li><p>回到代码仓库进入 <code>Settings</code> -&gt; <code>Secrets and variables</code> -&gt; <code>Actions</code> -&gt;  <button style="background-color: #4CAF50;padding: 3px 12px;font-size: 12px;line-height: 20px;border-radius: 6px;">New respository secret</button></p>
+</li>
+<li><p><code>Name</code>自定义一个变量名称(后面会用到这个变量名), <code>Secrets</code>填入生成的令牌。</p>
+</li>
 </ul>
-
-  </div>
-
-<p>在 GitHub 上添加部署 Action 私钥：仓库访问 Settings -&gt; Deploy keys -&gt; New respository secret，名字部分填写：HEXO_DEPLOY_KEY​，注意大小写，这个后面的 GitHub Actions Workflow 要用到，一定不能写错。</p>
+<h2 id="创建-Github-Actions-脚本"><a href="#创建-Github-Actions-脚本" class="headerlink" title="创建 Github Actions 脚本"></a>创建 Github Actions 脚本</h2><ul>
+<li>在你的 Hexo 项目根目录下创建一个 .github&#x2F;workflows 文件夹。</li>
+<li>在该文件夹内创建一个新的 YAML 文件(如 hexo-deploy.yml)用于定义 GitHub Actions 工作流。</li>
+<li>复制如下配置到 YAML 文件</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">name: Deploy Hexo to GitHub Pages</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master # 或你使用的默认分支名称</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout blog source</span><br><span class="line">        uses: actions/checkout@v2</span><br><span class="line">        with:</span><br><span class="line">          path: blog</span><br><span class="line"></span><br><span class="line">      - name: Set up Node.js</span><br><span class="line">        uses: actions/setup-node@v1</span><br><span class="line">        with:</span><br><span class="line">          node-version: &quot;16&quot; # 设置 Node.js 版本</span><br><span class="line"></span><br><span class="line">      - name: Cache dependencies</span><br><span class="line">        uses: actions/cache@v2</span><br><span class="line">        with:</span><br><span class="line">          path: node_modules</span><br><span class="line">          key: $&#123;&#123; runner.os &#125;&#125;-node-$&#123;&#123; hashFiles(&#x27;**/package-lock.json&#x27;) &#125;&#125;</span><br><span class="line">          restore-keys: |</span><br><span class="line">            $&#123;&#123; runner.os &#125;&#125;-node-</span><br><span class="line"></span><br><span class="line">      - name: Install dependencies</span><br><span class="line">        run: npm install</span><br><span class="line">        working-directory: ./blog</span><br><span class="line"></span><br><span class="line">      - name: Install Hexo CLI</span><br><span class="line">        run: npm install -g hexo-cli</span><br><span class="line">        working-directory: ./blog</span><br><span class="line"></span><br><span class="line">      - name: Generate static pages</span><br><span class="line">        run: hexo generate</span><br><span class="line">        working-directory: ./blog</span><br><span class="line"></span><br><span class="line">      - name: Deploy to GitHub Pages</span><br><span class="line">        uses: peaceiris/actions-gh-pages@v3</span><br><span class="line">        with:</span><br><span class="line">          personal_token: $&#123;&#123; secrets.PERSONAL_TOKEN &#125;&#125;</span><br><span class="line">          publish_dir: ./blog/public</span><br><span class="line">          external_repository: username/username.github.io # 更改为你的 GitHub Pages 仓库, username 是你的用户名</span><br><span class="line">          publish_branch: main # GitHub Pages 分支</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>提交代码到Hexo源码仓库,然后查看Actions是否运行成功,如果成功则会自动部署到GitHub Page仓库。<br><a class="link"   href="http://sqsora.github.io/" >SQSora Blog<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -60,7 +68,7 @@
   </entry>
   <entry>
     <title>Hexo安装</title>
-    <url>/2025/02/16/hexo-install/</url>
+    <url>/2025/02/14/hexo-install/</url>
     <content><![CDATA[<h2 id="安装node-js-npm"><a href="#安装node-js-npm" class="headerlink" title="安装node.js npm"></a>安装node.js npm</h2><h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><p>(略)</p>
 <h3 id="npm换源"><a href="#npm换源" class="headerlink" title="npm换源"></a>npm换源</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com <span class="comment">#淘宝 NPM 镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://npm.aliyun.com <span class="comment">#阿里云镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry http://mirrors.cloud.tencent.com/npm/ <span class="comment">#腾讯云镜像</span></span><br></pre></td></tr></table></figure></div>
 
@@ -90,7 +98,7 @@
   </entry>
   <entry>
     <title>Hexo-Icarus主题安装</title>
-    <url>/2025/02/16/hexo-theme/</url>
+    <url>/2025/02/14/hexo-theme/</url>
     <content><![CDATA[<h3 id="方式一：通过-git-克隆安装-推荐"><a href="#方式一：通过-git-克隆安装-推荐" class="headerlink" title="方式一：通过 git 克隆安装(推荐)"></a>方式一：通过 git 克隆安装(推荐)</h3><p>最新的 Icarus 使用 npm 安装的话是安装到 node_modules 下的。最好直接 git clone 一份到themes目录或者是复制出来，hexo 加载 themes 目录下的主题优先级是大于 node_modules 目录。 项目地址: <code>https://github.com/ppoffice/hexo-theme-icarus</code></p>
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus --branch 6.1.0 --depth 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#另外，你也可以使用下面的命令将Icarus安装为Git子模块(submodule)：</span></span><br><span class="line">git submodule add https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus --branch 6.1.0 --depth 1</span><br></pre></td></tr></table></figure></div>
 

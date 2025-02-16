@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2025/02/16/hexo-install/"/>
+    <link rel="canonical" href="http://example.com/2025/02/14/hexo-theme/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -23,16 +23,17 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo安装">
-<meta property="og:url" content="http://example.com/2025/02/16/hexo-install/index.html">
+<meta property="og:title" content="Hexo-Icarus主题安装">
+<meta property="og:url" content="http://example.com/2025/02/14/hexo-theme/index.html">
 <meta property="og:site_name" content="SQSora Blog">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-02-16T07:56:34.640Z">
-<meta property="article:modified_time" content="2025-02-16T07:56:34.640Z">
+<meta property="article:published_time" content="2025-02-14T14:16:18.000Z">
+<meta property="article:modified_time" content="2025-02-16T09:57:51.470Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Hexo Theme">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
     
@@ -46,7 +47,7 @@
     
     <title>
         
-            Hexo安装 | SQSora Blog
+            Hexo-Icarus主题安装 | SQSora Blog
         
     </title>
 
@@ -466,7 +467,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hexo安装</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hexo-Icarus主题安装</h1>
 			</div>
 			
 		</div>
@@ -485,15 +486,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-02-16 07:56:34</span>
-        <span class="mobile">2025-02-16 07:56:34</span>
+        <span class="desktop">2025-02-14 14:16:18</span>
+        <span class="mobile">2025-02-14 14:16:18</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-02-16 07:56:34</span>
-            <span class="mobile">2025-02-16 07:56:34</span>
+            <span class="desktop">2025-02-16 09:57:51</span>
+            <span class="mobile">2025-02-16 09:57:51</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -524,6 +525,10 @@
                         <a href="/tags/Hexo/">Hexo</a>&nbsp;
                     </li>
                 
+                    <li>
+                        | <a href="/tags/Hexo-Theme/">Hexo Theme</a>&nbsp;
+                    </li>
+                
             </ul>
         </span>
     
@@ -531,7 +536,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>391 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>344 字</span>
         </span>
     
     
@@ -555,44 +560,37 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="安装node-js-npm"><a href="#安装node-js-npm" class="headerlink" title="安装node.js npm"></a>安装node.js npm</h2><h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><p>(略)</p>
-<h3 id="npm换源"><a href="#npm换源" class="headerlink" title="npm换源"></a>npm换源</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com <span class="comment">#淘宝 NPM 镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://npm.aliyun.com <span class="comment">#阿里云镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry http://mirrors.cloud.tencent.com/npm/ <span class="comment">#腾讯云镜像</span></span><br></pre></td></tr></table></figure></div>
+			<h3 id="方式一：通过-git-克隆安装-推荐"><a href="#方式一：通过-git-克隆安装-推荐" class="headerlink" title="方式一：通过 git 克隆安装(推荐)"></a>方式一：通过 git 克隆安装(推荐)</h3><p>最新的 Icarus 使用 npm 安装的话是安装到 node_modules 下的。最好直接 git clone 一份到themes目录或者是复制出来，hexo 加载 themes 目录下的主题优先级是大于 node_modules 目录。 项目地址: <code>https://github.com/ppoffice/hexo-theme-icarus</code></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus --branch 6.1.0 --depth 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#另外，你也可以使用下面的命令将Icarus安装为Git子模块(submodule)：</span></span><br><span class="line">git submodule add https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus --branch 6.1.0 --depth 1</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="使用npm安装Hexo"><a href="#使用npm安装Hexo" class="headerlink" title="使用npm安装Hexo"></a>使用npm安装Hexo</h2><ul>
-<li>使用npm安装Hexo</li>
-<li>如需要部署到git page 那么需要安装deployer。</li>
-</ul>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure></div>
+<p>运行安装 semver dependencies等相关依赖</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -S semver@^7.5.4 hexo-renderer-inferno@^1.0.2  hexo-component-inferno@^3.1.2 bulma-stylus@0.8.0</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo init      <span class="comment"># 初始化Hexo 需要空文件夹</span></span><br><span class="line">npm install    <span class="comment"># 安装相关依赖</span></span><br><span class="line"></span><br><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo s   <span class="comment"># 启动预览</span></span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s --debug <span class="comment">#清除 生成 启动 一键三连!</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="方式二：通过npm-安装"><a href="#方式二：通过npm-安装" class="headerlink" title="方式二：通过npm 安装"></a>方式二：通过npm 安装</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-theme-icarus</span><br><span class="line">$ hexo config theme icarus</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="Hexo结构"><a href="#Hexo结构" class="headerlink" title="Hexo结构"></a>Hexo结构</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_config.yml     #网站的配置信息不可热更新</span><br><span class="line">package.json    #应用程序的信息</span><br><span class="line">scaffolds       #模版文件夹</span><br><span class="line">source          #存放用户资源，Markdown 文档</span><br><span class="line">    - _drafts   #草稿箱</span><br><span class="line">    - _posts    #开头为_(下划线)的文件/文件夹和隐藏的文件将会被忽略</span><br><span class="line">themes          #主题文件夹</span><br><span class="line">public          #网站文件</span><br></pre></td></tr></table></figure></div>
-<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>使用当前命令将从<code>/hexo/scaffolds/post.md</code>模板中生成一个文章文件</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;new article&quot;</span></span><br></pre></td></tr></table></figure></div>
+<h1 id="配置-Icarus-主题"><a href="#配置-Icarus-主题" class="headerlink" title="配置 Icarus 主题"></a>配置 Icarus 主题</h1><p>打开 站点配置文件_config.yml， 找到 theme 字段，并将其值更改为 icarus 或者使用 hexo命令</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">theme: icarus</span><br><span class="line">或者</span><br><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure></div>
 
-<p>文章可以拥有如下属性(根据主题不同可能含有不同的特性):</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: 文章标题</span><br><span class="line">date：  文章创建日期</span><br><span class="line">updated：   文章修改日期 </span><br><span class="line">expires: 过期时间 (2025-02-15 23:52:69)</span><br><span class="line">cover: 文章内头图</span><br><span class="line">thumbnail: 缩略图</span><br><span class="line">excerpt: 文章摘要</span><br><span class="line">categories  #分类</span><br><span class="line">tags: - &quot;Hexo&quot; -&quot;tag1&quot; -&quot;tag2&quot; #文章标签</span><br><span class="line">comments:   是否开启评论 true</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><p>运行后会在 source&#x2F;&lt;页面名称&gt; 中生成 index.html</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page about</span><br><span class="line">$ hexo new page &lt;页面名称&gt;</span><br></pre></td></tr></table></figure></div>
+<h1 id="配置作者资料卡"><a href="#配置作者资料卡" class="headerlink" title="配置作者资料卡"></a>配置作者资料卡</h1><p>编辑配置文件 <code>_config.icarus.yml</code></p>
+<div class="code-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span></span><br><span class="line">  <span class="bullet">-</span> </span><br><span class="line">    <span class="attr">position:</span> <span class="string">left</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">profile</span></span><br><span class="line">    <span class="comment"># 作者名称</span></span><br><span class="line">    <span class="attr">author:</span> <span class="string">SQSora</span></span><br><span class="line">    <span class="comment"># 作者头衔</span></span><br><span class="line">    <span class="attr">author_title:</span> <span class="string">SQSora</span> <span class="string">Blog</span></span><br><span class="line">    <span class="comment"># 作者所在地/公司</span></span><br><span class="line">    <span class="attr">location:</span> <span class="string">常盤台私立中学</span></span><br><span class="line">    <span class="comment"># 头像图片地址</span></span><br><span class="line">    <span class="attr">avatar:</span> </span><br><span class="line">    <span class="comment"># 是否显示圆形头像</span></span><br><span class="line">    <span class="attr">avatar_rounded:</span> <span class="string">ture</span></span><br><span class="line">    <span class="comment"># Gravatar邮箱(如不设置`avatar`项)</span></span><br><span class="line">    <span class="attr">gravatar:</span></span><br><span class="line">    <span class="comment"># 关注按钮链接地址</span></span><br><span class="line">    <span class="attr">follow_link:</span> <span class="string">&quot;https://github.com/SQSora/SQSora&quot;</span></span><br><span class="line">    <span class="comment"># 社交媒体链接</span></span><br><span class="line">    <span class="attr">social_links:</span></span><br><span class="line">      <span class="attr">Github:</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">&quot;https://github.com/SQSora&quot;</span></span><br></pre></td></tr></table></figure></div>
 		</div>
 
 		
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> Hexo安装</li>
+        <li><strong>标题:</strong> Hexo-Icarus主题安装</li>
         <li><strong>作者:</strong> SQSora</li>
         <li><strong>创建于
-                :</strong> 2025-02-16 07:56:34</li>
+                :</strong> 2025-02-14 14:16:18</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2025-02-16 07:56:34
+                    :</strong> 2025-02-16 09:57:51
             </li>
         
         <li>
-            <strong>链接:</strong> https://github.com/SQSora/2025/02/16/hexo-install/
+            <strong>链接:</strong> https://github.com/SQSora/2025/02/14/hexo-theme/
         </li>
         <li>
             <strong>
@@ -617,6 +615,10 @@
 				<a href="/tags/Hexo/">#Hexo</a>&nbsp;
 			</li>
 			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Hexo-Theme/">#Hexo Theme</a>&nbsp;
+			</li>
+			
 		</ul>
 		
 
@@ -626,29 +628,17 @@
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
 			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/02/16/hello-world/">
+				<a class="prev" rel="prev" href="/2025/02/14/hexo-install/">
 					<span class="left arrow-icon flex justify-center items-center">
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Hello World</span>
+						<span class="post-nav-title-item">Hexo安装</span>
 						<span class="post-nav-item">上一篇</span>
 					</span>
 				</a>
 			</div>
 			
-			
-			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/02/16/hexo-theme/">
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Hexo-Icarus主题安装</span>
-						<span class="post-nav-item">下一篇</span>
-					</span>
-					<span class="right arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-right"></i>
-					</span>
-				</a>
-			</div>
 			
 		</div>
 		
@@ -662,8 +652,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">Hexo安装</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node-js-npm"><span class="nav-text">安装node.js npm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-text">安装流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm%E6%8D%A2%E6%BA%90"><span class="nav-text">npm换源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8npm%E5%AE%89%E8%A3%85Hexo"><span class="nav-text">使用npm安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="nav-text">初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E7%BB%93%E6%9E%84"><span class="nav-text">Hexo结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0"><span class="nav-text">创建文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="nav-text">创建页面</span></a></li></ol></li></ol>
+		<div class="page-title">Hexo-Icarus主题安装</div>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E9%80%9A%E8%BF%87-git-%E5%85%8B%E9%9A%86%E5%AE%89%E8%A3%85-%E6%8E%A8%E8%8D%90"><span class="nav-text">方式一：通过 git 克隆安装(推荐)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E9%80%9A%E8%BF%87npm-%E5%AE%89%E8%A3%85"><span class="nav-text">方式二：通过npm 安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Icarus-%E4%B8%BB%E9%A2%98"><span class="nav-text">配置 Icarus 主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BD%9C%E8%80%85%E8%B5%84%E6%96%99%E5%8D%A1"><span class="nav-text">配置作者资料卡</span></a>
 
 	</div>
 </div>
@@ -696,7 +686,7 @@
                     </span>
                     
                         <span>
-                            共 1.6k 字
+                            共 1.9k 字
                         </span>
                     
                 </p>
