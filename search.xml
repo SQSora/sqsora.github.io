@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/02/16/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 GitHub Action 自动部署 Hexo</title>
+    <url>/2025/02/16/hexo-github-action/</url>
+    <content><![CDATA[<h3 id="创建并初始化Hexo项目"><a href="#创建并初始化Hexo项目" class="headerlink" title="创建并初始化Hexo项目"></a>创建并初始化Hexo项目</h3><p>如果你没有Hexo,点击可查看<a href="/2025/02/15/hexo-install/">新建Hexo项目</a></p>
+<h3 id="创建Github-SSH密钥"><a href="#创建Github-SSH密钥" class="headerlink" title="创建Github SSH密钥"></a>创建Github SSH密钥</h3><p>Github已不再支持HTTP PUSH,点击可查看<a href="/2025/02/15/hexo-install/">生成SSH秘钥并上传至GitHub</a></p>
+<h3 id="在-GitHub-上添加部署-Action-私钥"><a href="#在-GitHub-上添加部署-Action-私钥" class="headerlink" title="在 GitHub 上添加部署 Action 私钥"></a>在 GitHub 上添加部署 Action 私钥</h3><ul>
+<li><p>在GItHub中创建一个代码仓库(可选择Private)</p>
+</li>
+<li><p>在 GitHub 仓库里，进入 <code>Settings</code> -&gt; <code>Deploy keys</code> -&gt; <code>Add deploy key</code> 页面。在 <code>Title</code>随便输入一个名称,例如<code>HEXO_DEPLOY_KEY</code>,将公钥粘贴到 <code>Key</code> 文本框中,并且选择<code>Allow write access</code>。</p>
+</li>
+</ul>
+
+  <div class="note p-4 mb-4 rounded-small danger">
+    <ul>
+<li>如果出现<code>Key is already in use</code>则需要多创建一个密钥</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your email&quot;</span> <span class="comment"># (建议使用GitHub注册时候用的email)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#运行后会提示输入新的本地key的名称,这里名为github_hexo</span></span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa): github_hexo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后再运行，会提示设置密码直接回车就行</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>接下来将<code>github_hexo.pub</code>的内容重新安装上面的步骤上传</li>
+</ul>
+
+  </div>
+
+<p>在 GitHub 上添加部署 Action 私钥：仓库访问 Settings -&gt; Deploy keys -&gt; New respository secret，名字部分填写：HEXO_DEPLOY_KEY​，注意大小写，这个后面的 GitHub Actions Workflow 要用到，一定不能写错。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>GitHub</tag>
+        <tag>GitHub Action</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo安装</title>
+    <url>/2025/02/16/hexo-install/</url>
+    <content><![CDATA[<h2 id="安装node-js-npm"><a href="#安装node-js-npm" class="headerlink" title="安装node.js npm"></a>安装node.js npm</h2><h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><p>(略)</p>
+<h3 id="npm换源"><a href="#npm换源" class="headerlink" title="npm换源"></a>npm换源</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com <span class="comment">#淘宝 NPM 镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://npm.aliyun.com <span class="comment">#阿里云镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry http://mirrors.cloud.tencent.com/npm/ <span class="comment">#腾讯云镜像</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="使用npm安装Hexo"><a href="#使用npm安装Hexo" class="headerlink" title="使用npm安装Hexo"></a>使用npm安装Hexo</h2><ul>
+<li>使用npm安装Hexo</li>
+<li>如需要部署到git page 那么需要安装deployer。</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-deployer-git –save</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init      <span class="comment"># 初始化Hexo 需要空文件夹</span></span><br><span class="line">npm install    <span class="comment"># 安装相关依赖</span></span><br><span class="line"></span><br><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo s   <span class="comment"># 启动预览</span></span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s --debug <span class="comment">#清除 生成 启动 一键三连!</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Hexo结构"><a href="#Hexo结构" class="headerlink" title="Hexo结构"></a>Hexo结构</h3><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">_config.yml     #网站的配置信息不可热更新</span><br><span class="line">package.json    #应用程序的信息</span><br><span class="line">scaffolds       #模版文件夹</span><br><span class="line">source          #存放用户资源，Markdown 文档</span><br><span class="line">    - _drafts   #草稿箱</span><br><span class="line">    - _posts    #开头为_(下划线)的文件/文件夹和隐藏的文件将会被忽略</span><br><span class="line">themes          #主题文件夹</span><br><span class="line">public          #网站文件</span><br></pre></td></tr></table></figure></div>
+<h3 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h3><p>使用当前命令将从<code>/hexo/scaffolds/post.md</code>模板中生成一个文章文件</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;new article&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>文章可以拥有如下属性(根据主题不同可能含有不同的特性):</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 文章标题</span><br><span class="line">date：  文章创建日期</span><br><span class="line">updated：   文章修改日期 </span><br><span class="line">expires: 过期时间 (2025-02-15 23:52:69)</span><br><span class="line">cover: 文章内头图</span><br><span class="line">thumbnail: 缩略图</span><br><span class="line">excerpt: 文章摘要</span><br><span class="line">categories  #分类</span><br><span class="line">tags: - &quot;Hexo&quot; -&quot;tag1&quot; -&quot;tag2&quot; #文章标签</span><br><span class="line">comments:   是否开启评论 true</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><p>运行后会在 source&#x2F;&lt;页面名称&gt; 中生成 index.html</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page about</span><br><span class="line">$ hexo new page &lt;页面名称&gt;</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-Icarus主题安装</title>
+    <url>/2025/02/16/hexo-theme/</url>
+    <content><![CDATA[<h3 id="方式一：通过-git-克隆安装-推荐"><a href="#方式一：通过-git-克隆安装-推荐" class="headerlink" title="方式一：通过 git 克隆安装(推荐)"></a>方式一：通过 git 克隆安装(推荐)</h3><p>最新的 Icarus 使用 npm 安装的话是安装到 node_modules 下的。最好直接 git clone 一份到themes目录或者是复制出来，hexo 加载 themes 目录下的主题优先级是大于 node_modules 目录。 项目地址: <code>https://github.com/ppoffice/hexo-theme-icarus</code></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus --branch 6.1.0 --depth 1</span><br><span class="line"></span><br><span class="line"><span class="comment">#另外，你也可以使用下面的命令将Icarus安装为Git子模块(submodule)：</span></span><br><span class="line">git submodule add https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus --branch 6.1.0 --depth 1</span><br></pre></td></tr></table></figure></div>
+
+<p>运行安装 semver dependencies等相关依赖</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -S semver@^7.5.4 hexo-renderer-inferno@^1.0.2  hexo-component-inferno@^3.1.2 bulma-stylus@0.8.0</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="方式二：通过npm-安装"><a href="#方式二：通过npm-安装" class="headerlink" title="方式二：通过npm 安装"></a>方式二：通过npm 安装</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-theme-icarus</span><br><span class="line">$ hexo config theme icarus</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="配置-Icarus-主题"><a href="#配置-Icarus-主题" class="headerlink" title="配置 Icarus 主题"></a>配置 Icarus 主题</h1><p>打开 站点配置文件_config.yml， 找到 theme 字段，并将其值更改为 icarus 或者使用 hexo命令</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">theme: icarus</span><br><span class="line">或者</span><br><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="配置作者资料卡"><a href="#配置作者资料卡" class="headerlink" title="配置作者资料卡"></a>配置作者资料卡</h1><p>编辑配置文件 <code>_config.icarus.yml</code></p>
+<div class="code-container" data-rel="Yml"><figure class="iseeu highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">widgets:</span></span><br><span class="line">  <span class="bullet">-</span> </span><br><span class="line">    <span class="attr">position:</span> <span class="string">left</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">profile</span></span><br><span class="line">    <span class="comment"># 作者名称</span></span><br><span class="line">    <span class="attr">author:</span> <span class="string">SQSora</span></span><br><span class="line">    <span class="comment"># 作者头衔</span></span><br><span class="line">    <span class="attr">author_title:</span> <span class="string">SQSora</span> <span class="string">Blog</span></span><br><span class="line">    <span class="comment"># 作者所在地/公司</span></span><br><span class="line">    <span class="attr">location:</span> <span class="string">常盤台私立中学</span></span><br><span class="line">    <span class="comment"># 头像图片地址</span></span><br><span class="line">    <span class="attr">avatar:</span> </span><br><span class="line">    <span class="comment"># 是否显示圆形头像</span></span><br><span class="line">    <span class="attr">avatar_rounded:</span> <span class="string">ture</span></span><br><span class="line">    <span class="comment"># Gravatar邮箱(如不设置`avatar`项)</span></span><br><span class="line">    <span class="attr">gravatar:</span></span><br><span class="line">    <span class="comment"># 关注按钮链接地址</span></span><br><span class="line">    <span class="attr">follow_link:</span> <span class="string">&quot;https://github.com/SQSora/SQSora&quot;</span></span><br><span class="line">    <span class="comment"># 社交媒体链接</span></span><br><span class="line">    <span class="attr">social_links:</span></span><br><span class="line">      <span class="attr">Github:</span></span><br><span class="line">        <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">&quot;https://github.com/SQSora&quot;</span></span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Hexo Theme</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>生成SSH秘钥并上传至GitHub</title>
+    <url>/2025/02/16/%E7%94%9F%E6%88%90SSH%E7%A7%98%E9%92%A5%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%87%B3GitHub/</url>
+    <content><![CDATA[<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>(略)</p>
+<h3 id="查看是否已有密钥"><a href="#查看是否已有密钥" class="headerlink" title="查看是否已有密钥"></a>查看是否已有密钥</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~</span><br><span class="line">$ <span class="built_in">cd</span> ./.ssh/</span><br><span class="line">$ <span class="built_in">ls</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="如已有密钥可跳转到上传部分"><a href="#如已有密钥可跳转到上传部分" class="headerlink" title="如已有密钥可跳转到上传部分"></a>如已有密钥可跳转到<a href="#upload-ssh" style="color: #39C5BB;">上传部分</a></h3><ul>
+<li>检查是否配置过git。</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>如果之前没有配置则:</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config –global user.name &lt;名称&gt; </span><br><span class="line">$ git config –global user.email &lt;邮箱&gt;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>生成秘钥:</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -t 指定密钥类型，默认 rsa 有RSA和DSA</span></span><br><span class="line"><span class="comment"># -b 4096 指定密钥的长度为4096位，这比默认的2048位更安全。</span></span><br><span class="line"><span class="comment"># -C 为生成的密钥添加一个注释（通常是你的电子邮件地址），以便于识别。</span></span><br><span class="line">$ ssh-keygen -t rsa -b 4096 -C &lt;邮箱&gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;sqsora@email.com&quot;</span></span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/root/.ssh/id_rsa):   <span class="comment">#密钥文件默认存放位置</span></span><br><span class="line">Created directory <span class="string">&#x27;/root/.ssh&#x27;</span>.</span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): <span class="comment">#输入密钥密码，可直接按 Enter 留空</span></span><br><span class="line">Enter same passphrase again:     <span class="comment"># 再输入一遍密钥密码</span></span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.    <span class="comment"># 生成的私钥路径</span></span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /root/.ssh/id_rsa.pub.    <span class="comment"># 生成的公钥路径</span></span><br><span class="line">The key fingerprint is:</span><br><span class="line">***********************************</span><br><span class="line">The key<span class="string">&#x27;s randomart image is:</span></span><br><span class="line"><span class="string">+---[RSA 2048]----+</span></span><br><span class="line"><span class="string">|           +.    |</span></span><br><span class="line"><span class="string">*******************</span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br></pre></td></tr></table></figure></div>
+
+
+<h3 id="查看密钥"><a href="#查看密钥" class="headerlink" title="查看密钥"></a><a name="upload-ssh"></a>查看密钥</h3>
+  <div class="note p-4 mb-4 rounded-small danger">
+    <p>除非你确定自己在做什么，否则不应该将<strong>id_rsa的密钥</strong>泄露给任何人。</p>
+
+  </div>
+
+<p>生成成功后进入<code>~/.ssh</code>目录，至少包含 <code>id_rsa</code> <code>id_rsa.pub</code> 这两个文件。</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">$ <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line">id_rsa id_rsa.pub</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cat</span> id_rsa.pub    <span class="comment"># 打印id_rsa.pub(公钥)的内容</span></span><br><span class="line">ssh-rsa AAAAa5Iyc2E0B1NzCXJ******</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="上传到GitHub"><a href="#上传到GitHub" class="headerlink" title="上传到GitHub"></a>上传到GitHub</h3><ul>
+<li><p>登录<code>GitHub</code>,打开 <code>Settings</code> 页面 [<a class="link"   href="https://github.com/settings/profile" >https://github.com/settings/profile<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>]</p>
+</li>
+<li><p>在左边目录，选择<code>SSH and GPG keys</code>。</p>
+</li>
+<li><p>在<code>SSH keys</code>页面点击 <button style="background-color: #4CAF50;padding: 3px 12px;font-size: 12px;line-height: 20px;border-radius: 6px;">New SSH key</button></p>
+</li>
+<li><p><code>Title</code>内容随便写 <code>Key</code>则将上面的公钥粘贴上去。</p>
+</li>
+</ul>
+<h3 id="测试-SSH-连接"><a href="#测试-SSH-连接" class="headerlink" title="测试 SSH 连接"></a>测试 SSH 连接</h3><ul>
+<li>运行该命令:</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>可能会看到类似如下的警告：</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; The authenticity of host &#x27;github.com (IP ADDRESS)&#x27; can&#x27;t be established.</span><br><span class="line">&gt; ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="line">&gt; Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>验证所看到消息中的指纹是否与 GitHub 的公钥指纹匹配。 如果是则键入 <code>yes</code>：</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; Hi &lt;名称&gt;! You&#x27;ve successfully authenticated, but GitHub does not</span><br><span class="line">&gt; provide shell access.</span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+</search>
