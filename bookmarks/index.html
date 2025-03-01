@@ -23,14 +23,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="bookmarks">
+<meta property="og:title" content="书签">
 <meta property="og:url" content="http://example.com/bookmarks/index.html">
 <meta property="og:site_name" content="SQSora Blog">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-02-15T21:38:03.000Z">
-<meta property="article:modified_time" content="2025-02-16T10:19:11.326Z">
+<meta property="article:modified_time" content="2025-03-01T06:03:14.459Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
@@ -45,7 +45,7 @@
     
     <title>
         
-            bookmarks | SQSora Blog
+            书签 | SQSora Blog
         
     </title>
 
@@ -436,15 +436,15 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">8</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -465,8 +465,11 @@
 
 
 	<h1 class="page-title-header">
-		bookmarks
+		书签
 	</h1>
+	<h4 class="page-subtitle-header" style="margin: 6px 0 36px 0;">
+		书签功能中可能包含的第三方链接内容（如文章、图片），其版权归属原作者或合法授权方。若存在侵权内容，请联系我删除。
+	</h4>
 	<div class="flex flex-col md:flex-row gap-6 md:gap-12 w-full">
 
 
@@ -483,6 +486,17 @@
                    data-category="分类名称">
 					<i class="fa-regular fa-folder mr-2 w-6 h-6"></i>
 					分类名称
+				</a>
+				
+				<a href="#工具" class="whitespace-nowrap md:whitespace-normal block px-3 py-2 rounded-lg 
+                   hover:bg-second-background-color hover:text-primary hover:scale-102 
+                   transition-all duration-200 border border-transparent 
+                   hover:border-second-background-color
+                          flex-shrink-0 font-medium
+                          bookmark-nav-item"
+                   data-category="工具">
+					<i class="fa-regular fa-tools mr-2 w-6 h-6"></i>
+					工具
 				</a>
 				
 				<a href="#ai工具" class="whitespace-nowrap md:whitespace-normal block px-3 py-2 rounded-lg 
@@ -536,6 +550,40 @@
 				</div>
 			</section>
 			
+			<section id="工具" class="mb-12">
+				<h2 class="text-2xl font-semibold text-second-text-color mb-4 pb-2 border-b border-border-color">
+					工具
+				</h2>
+
+				<div class="grid gap-6 lg:grid-cols-2">
+					
+					<a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="group block">
+						<div class="p-5 rounded-xl redefine-box-shadow-flat transition-all duration-300
+                                      hover:transform hover:-translate-y-1">
+							<div class="flex items-center gap-5">
+								<div class="w-12 h-12 rounded-xl overflow-hidden bg-second-background-color flex-shrink-0
+                                                transform group-hover:scale-105 transition-transform duration-300">
+									<img src="https://www.deepseek.com/favicon.ico" alt="阿里巴巴开源镜像站-OPSX镜像站" class="w-full h-full object-cover" onerror="this.src='/images/bookmark-placeholder.svg'">
+								</div>
+								<div class="flex-1 min-w-0 flex flex-col gap-1">
+									<div class="flex items-center justify-between">
+										<h3 class="font-medium text-second-text-color group-hover:text-primary transition-colors">
+											阿里巴巴开源镜像站-OPSX镜像站
+										</h3>
+										<i class="fa-regular fa-arrow-right text-third-text-color opacity-0 group-hover:opacity-100 -translate-x-1
+                                                      group-hover:translate-x-0 transition-all duration-300"></i>
+									</div>
+									<p class="text-sm text-third-text-color line-clamp-2">
+										阿里巴巴开源镜像站-OPSX镜像站-阿里云开发者社区
+									</p>
+								</div>
+							</div>
+						</div>
+					</a>
+					
+				</div>
+			</section>
+			
 			<section id="ai工具" class="mb-12">
 				<h2 class="text-2xl font-semibold text-second-text-color mb-4 pb-2 border-b border-border-color">
 					AI工具
@@ -561,6 +609,30 @@
 									</div>
 									<p class="text-sm text-third-text-color line-clamp-2">
 										DeepSeek | 深度求索
+									</p>
+								</div>
+							</div>
+						</div>
+					</a>
+					
+					<a href="https://yuanbao.tencent.com/chat" target="_blank" rel="noopener noreferrer" class="group block">
+						<div class="p-5 rounded-xl redefine-box-shadow-flat transition-all duration-300
+                                      hover:transform hover:-translate-y-1">
+							<div class="flex items-center gap-5">
+								<div class="w-12 h-12 rounded-xl overflow-hidden bg-second-background-color flex-shrink-0
+                                                transform group-hover:scale-105 transition-transform duration-300">
+									<img src="https://cdn-bot.hunyuan.tencent.com/logo.png" alt="腾讯元宝" class="w-full h-full object-cover" onerror="this.src='/images/bookmark-placeholder.svg'">
+								</div>
+								<div class="flex-1 min-w-0 flex flex-col gap-1">
+									<div class="flex items-center justify-between">
+										<h3 class="font-medium text-second-text-color group-hover:text-primary transition-colors">
+											腾讯元宝
+										</h3>
+										<i class="fa-regular fa-arrow-right text-third-text-color opacity-0 group-hover:opacity-100 -translate-x-1
+                                                      group-hover:translate-x-0 transition-all duration-300"></i>
+									</div>
+									<p class="text-sm text-third-text-color line-clamp-2">
+										腾讯元宝 - 轻松工作 多点生活
 									</p>
 								</div>
 							</div>
@@ -620,11 +692,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 5 篇文章
+                        共撰写了 7 篇文章
                     </span>
                     
                         <span>
-                            共 1.9k 字
+                            共 2.4k 字
                         </span>
                     
                 </p>

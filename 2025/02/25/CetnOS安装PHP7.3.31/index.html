@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2025/02/14/hello-world/"/>
+    <link rel="canonical" href="http://example.com/2025/02/25/cetnos安装php7.3.31/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -23,16 +23,17 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2025/02/14/hello-world/index.html">
+<meta property="og:title" content="CentOS下编译安装PHP7.3.31">
+<meta property="og:url" content="http://example.com/2025/02/25/CetnOS%E5%AE%89%E8%A3%85PHP7.3.31/index.html">
 <meta property="og:site_name" content="SQSora Blog">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-02-14T14:16:18.000Z">
+<meta property="article:published_time" content="2025-02-25T18:40:19.000Z">
 <meta property="article:modified_time" content="2025-03-01T06:03:14.458Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
     
@@ -46,7 +47,7 @@
     
     <title>
         
-            Hello World | SQSora Blog
+            CentOS下编译安装PHP7.3.31 | SQSora Blog
         
     </title>
 
@@ -468,7 +469,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hello World</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">CentOS下编译安装PHP7.3.31</h1>
 			</div>
 			
 		</div>
@@ -487,8 +488,8 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-02-14 14:16:18</span>
-        <span class="mobile">2025-02-14 14:16:18</span>
+        <span class="desktop">2025-02-25 18:40:19</span>
+        <span class="mobile">2025-02-25 18:40:19</span>
         <span class="hover-info">创建</span>
     </span>
     
@@ -509,7 +510,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Hexo/">Hexo</a>&nbsp;
+                            <a href="/categories/PHP/">PHP</a>&nbsp;
                         </li>
                     
                     
@@ -523,7 +524,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Hexo/">Hexo</a>&nbsp;
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/PHP/">PHP</a>&nbsp;
                     </li>
                 
             </ul>
@@ -533,12 +538,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>75 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>394 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -557,30 +562,53 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+			<h2 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum groupinstall -y  <span class="string">&quot;Development Tools&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y wget gcc libxml2 libxml2-devel openssl openssl-devel bzip2-devel libcurl-devel \</span><br><span class="line">libjpeg-devel libpng-devel freetype-devel gmp-devel sqlite-devel \</span><br><span class="line">libicu-devel libxslt-devel zlib-devel \</span><br><span class="line">curl-devel libjpeg-devel libpng-devel</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+<h2 id="2-下载PHP源码-https-www-php-net-distributions"><a href="#2-下载PHP源码-https-www-php-net-distributions" class="headerlink" title="2.下载PHP源码(https://www.php.net/distributions)"></a>2.下载PHP源码(<a class="link"   target="_blank" rel="noopener" href="https://www.php.net/distributions" >https://www.php.net/distributions<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>)</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PHP_VERSION=7.3.31</span><br><span class="line"><span class="built_in">sudo</span> wget https://www.php.net/distributions/php<span class="variable">$&#123;PHP_VERSION&#125;</span>.tar.gz</span><br><span class="line"><span class="built_in">sudo</span> tar -zxvf php<span class="variable">$&#123;PHP_VERSION&#125;</span>.tar.gz</span><br><span class="line"><span class="built_in">cd</span> php<span class="variable">$&#123;PHP_VERSION&#125;</span></span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+<h2 id="3-配置编译选项"><a href="#3-配置编译选项" class="headerlink" title="3.配置编译选项"></a>3.配置编译选项</h2><ul>
+<li><code>--with-fpm-user/group</code> 指定 FPM 运行的用户&#x2F;组（需提前创建）。</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ./configure --prefix=/usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span> \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--with-fpm-user=www \</span><br><span class="line">--with-fpm-group=www \</span><br><span class="line">--with-openssl \</span><br><span class="line">--with-zlib \</span><br><span class="line">--with-curl \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--with-pdo-mysql \</span><br><span class="line">--with-mysqli \</span><br><span class="line">--with-gd \</span><br><span class="line">--with-jpeg-dir=/usr \</span><br><span class="line">--with-png-dir=/usr \</span><br><span class="line">--with-freetype-dir=/usr \</span><br><span class="line">--enable-bcmath \</span><br><span class="line">--enable-exif \</span><br><span class="line">--enable-pcntl</span><br><span class="line"></span><br><span class="line"><span class="comment"># --prefix 指定安装目录</span></span><br><span class="line"><span class="comment"># --with-config-file-path 指定配置文件目录</span></span><br><span class="line"><span class="comment"># --enable-fpm 启用PHP-FPM</span></span><br><span class="line"><span class="comment"># --with-fpm-user 指定PHP-FPM运行用户 需提前创建</span></span><br><span class="line"><span class="comment"># --with-fpm-group 指定PHP-FPM运行用户组 需提前创建</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="4-编译并安装"><a href="#4-编译并安装" class="headerlink" title="4.编译并安装"></a>4.编译并安装</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> make &amp;&amp; <span class="built_in">sudo</span> make install</span><br><span class="line"><span class="comment"># sudo make -j4 &amp;&amp; sudo make install # 或者使用4核编译</span></span><br><span class="line"><span class="comment"># sudo make -j$(nproc) &amp;&amp; sudo make install # 或者拉满核心</span></span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h2 id="5-配置PHP"><a href="#5-配置PHP" class="headerlink" title="5.配置PHP"></a>5.配置PHP</h2><ul>
+<li>复制配置文件</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> php.ini-production /usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span>/etc/php.ini</span><br><span class="line"><span class="comment"># 或生产环境配置</span></span><br><span class="line"><span class="comment"># sudo cp php.ini-production /usr/local/php$&#123;PHP_VERSION&#125;/etc/php.ini</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 PHP-FPM（如果启用）</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span>/etc/php-fpm.conf.default /usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span>/etc/php-fpm.conf</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span>/etc/php-fpm.d/www.conf.default /usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span>/etc/php-fpm.d/www.conf</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>设置软链接</li>
+</ul>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/php<span class="variable">$&#123;PHP_VERSION&#125;</span>/bin/php /usr/bin/php<span class="variable">$&#123;PHP_VERSION&#125;</span></span><br></pre></td></tr></table></figure></div>
 
+<!-- 
+## 6.1配置 PHP-FPM 服务(可选)
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 systemd 服务文件</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/systemd/system/php-fpm.service &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit]</span></span><br><span class="line"><span class="string">Description=PHP FastCGI Process Manager</span></span><br><span class="line"><span class="string">After=network.target</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[Service]</span></span><br><span class="line"><span class="string">Type=forking</span></span><br><span class="line"><span class="string">PIDFile=/run/php-fpm/php-fpm.pid</span></span><br><span class="line"><span class="string">ExecStart=/usr/local/php7.3/sbin/php-fpm --fpm-config /usr/local/php7.3/etc/php-fpm.conf</span></span><br><span class="line"><span class="string">ExecReload=/bin/kill -USR2 \$MAINPID</span></span><br><span class="line"><span class="string">Restart=on-failure</span></span><br><span class="line"><span class="string">RestartSec=5s</span></span><br><span class="line"><span class="string">User=www</span></span><br><span class="line"><span class="string">Group=www</span></span><br><span class="line"><span class="string">RuntimeDirectory=php-fpm</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[Install]</span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动并设置开机自启</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl start php-fpm</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> php-fpm</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="6-2启动PHP-FPM服务"><a href="#6-2启动PHP-FPM服务" class="headerlink" title="6.2启动PHP-FPM服务"></a>6.2启动PHP-FPM服务</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /usr/local/php7.3/sbin/php-fpm</span><br><span class="line"><span class="comment"># 验证进程</span></span><br><span class="line">ps aux | grep php-fpm</span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 7.验证安装</span></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># 检查 PHP 版本</span></span><br><span class="line">/usr/local/<span class="variable">$&#123;PHP_VERSION&#125;</span>/bin/php -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试 PHP-FPM 运行状态</span></span><br><span class="line">systemctl status php-fpm</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="8-集成到-Web-服务器"><a href="#8-集成到-Web-服务器" class="headerlink" title="8.集成到 Web 服务器"></a>8.集成到 Web 服务器</h2><ul>
+<li>Nginx</li>
+</ul>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    # listen 80;</span><br><span class="line">    # server_name localhost;</span><br><span class="line">    # root /var/www/html;</span><br><span class="line">    # index index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">        fastcgi_index index.php;</span><br><span class="line">        include fastcgi_params;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="终端脚本"><a href="#终端脚本" class="headerlink" title="#终端脚本"></a>#终端脚本</h2><ul>
+<li><code>vi install_php.sh</code></li>
+<li><code>chmod +x install_php.sh</code></li>
+<li><code>./install_php.sh</code></li>
+</ul>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">read -p &quot;请输入完整的PHP版本 (如: 7.3.31): &quot; PHP_FILE</span><br><span class="line">if [ -z &quot;$PHP_FILE&quot; ]; then</span><br><span class="line">    echo &quot;请输入正确的版本号。&quot;</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">PHP_VERSION=$(echo $PHP_FILE | cut -d &#x27;.&#x27; -f 1,2)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装开发工具和依赖库</span></span><br><span class="line">sudo yum groupinstall -y &quot;Development Tools&quot;</span><br><span class="line">sudo yum install -y wget gcc libxml2 libxml2-devel openssl openssl-devel bzip2-devel libcurl-devel \</span><br><span class="line">libjpeg-devel libpng-devel freetype-devel gmp-devel sqlite-devel \</span><br><span class="line">libicu-devel libxslt-devel zlib-devel \</span><br><span class="line">curl-devel libjpeg-devel libpng-devel</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查是否存在PHP源码包文件，如果不存在则下载</span></span><br><span class="line">if [ ! -f &quot;php-$&#123;PHP_FILE&#125;.tar.gz&quot; ]; then</span><br><span class="line">    sudo wget https://www.php.net/distributions/php-$&#123;PHP_FILE&#125;.tar.gz</span><br><span class="line">    # 检查wget命令是否成功</span><br><span class="line">    if [ $? -ne 0 ]; then</span><br><span class="line">        echo &quot;下载 php-$&#123;PHP_FILE&#125;.tar.gz 失败,请尝试手动下载&quot;</span><br><span class="line">        exit 1</span><br><span class="line">    fi</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压PHP源码包</span></span><br><span class="line">sudo tar -zxvf php-$&#123;PHP_FILE&#125;.tar.gz</span><br><span class="line">cd php-$&#123;PHP_FILE&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置、编译和安装PHP</span></span><br><span class="line">sudo ./configure --prefix=/usr/local/php$&#123;PHP_VERSION&#125; \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--with-fpm-user=www \</span><br><span class="line">--with-fpm-group=www \</span><br><span class="line">--with-openssl \</span><br><span class="line">--with-zlib \</span><br><span class="line">--with-curl \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--with-pdo-mysql \</span><br><span class="line">--with-mysqli \</span><br><span class="line">--with-gd \</span><br><span class="line">--with-jpeg-dir=/usr \</span><br><span class="line">--with-png-dir=/usr \</span><br><span class="line">--with-freetype-dir=/usr \</span><br><span class="line">--enable-bcmath \</span><br><span class="line">--enable-exif \</span><br><span class="line">--enable-pcntl</span><br><span class="line"></span><br><span class="line">sudo make -j$(nproc) &amp;&amp; sudo make install</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制配置文件</span></span><br><span class="line">sudo cp php.ini-production /usr/local/php$&#123;PHP_VERSION&#125;/etc/php.ini</span><br><span class="line">sudo cp /usr/local/php$&#123;PHP_VERSION&#125;/etc/php-fpm.conf.default /usr/local/php$&#123;PHP_VERSION&#125;/etc/php-fpm.conf</span><br><span class="line">sudo cp /usr/local/php$&#123;PHP_VERSION&#125;/etc/php-fpm.d/www.conf.default /usr/local/php$&#123;PHP_VERSION&#125;/etc/php-fpm.d/www.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建符号链接</span></span><br><span class="line">sudo ln -s /usr/local/php$&#123;PHP_VERSION&#125;/bin/php /usr/bin/php$&#123;PHP_VERSION&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查PHP版本</span></span><br><span class="line"><span class="meta prompt_">/usr/local/php$</span><span class="language-bash">&#123;PHP_VERSION&#125;/bin/php -v</span></span><br><span class="line"><span class="meta prompt_">php$</span><span class="language-bash">&#123;PHP_VERSION&#125; -v</span></span><br></pre></td></tr></table></figure></div>
 		</div>
 
 		
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> Hello World</li>
+        <li><strong>标题:</strong> CentOS下编译安装PHP7.3.31</li>
         <!-- <li><strong>作者:</strong> SQSora</li> -->
         <li><strong>创建于
-                :</strong> 2025-02-14 14:16:18</li>
+                :</strong> 2025-02-25 18:40:19</li>
         
             <li>
                 <strong>更新于
@@ -588,7 +616,7 @@
             </li>
         
         <li>
-            <strong>链接:</strong> https://github.com/SQSora/2025/02/14/hello-world/
+            <strong>链接:</strong> https://github.com/SQSora/2025/02/25/CetnOS安装PHP7.3.31/
         </li>
         <li>
             <strong>
@@ -613,7 +641,11 @@
 		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
 			
 			<li class="tag-item mx-0.5">
-				<a href="/tags/Hexo/">#Hexo</a>&nbsp;
+				<a href="/tags/Linux/">#Linux</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/PHP/">#PHP</a>&nbsp;
 			</li>
 			
 		</ul>
@@ -624,23 +656,11 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/02/16/%E7%94%9F%E6%88%90SSH%E7%A7%98%E9%92%A5%E5%B9%B6%E4%B8%8A%E4%BC%A0%E8%87%B3GitHub/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">生成SSH秘钥并上传至GitHub</span>
-						<span class="post-nav-item">上一篇</span>
-					</span>
-				</a>
-			</div>
-			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/02/14/hexo-install/">
+				<a class="next" rel="next" href="/2025/02/22/CetnOS%E5%AE%89%E8%A3%85/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Hexo安装</span>
+						<span class="post-nav-title-item">CentOS 8.5.2211安装</span>
 						<span class="post-nav-item">下一篇</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -661,8 +681,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">Hello World</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<div class="page-title">CentOS下编译安装PHP7.3.31</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-text">1.安装依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BDPHP%E6%BA%90%E7%A0%81-https-www-php-net-distributions"><span class="nav-text">2.下载PHP源码(https:&#x2F;&#x2F;www.php.net&#x2F;distributions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9"><span class="nav-text">3.配置编译选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%BC%96%E8%AF%91%E5%B9%B6%E5%AE%89%E8%A3%85"><span class="nav-text">4.编译并安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E9%85%8D%E7%BD%AEPHP"><span class="nav-text">5.配置PHP</span></a></li></ol>
 
 	</div>
 </div>
