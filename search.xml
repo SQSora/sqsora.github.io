@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CentOS 8.5.2211安装</title>
-    <url>/2025/02/22/CetnOS%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h3 id="替换安装源"><a href="#替换安装源" class="headerlink" title="替换安装源"></a>替换安装源</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 备份原有的repo文件</span></span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br><span class="line"><span class="comment"># 切换至清华大学的yum源，其中8.5.2111为CentOS版本号</span></span><br><span class="line">sed -e <span class="string">&quot;s|^mirrorlist=|#mirrorlist=|g&quot;</span> \</span><br><span class="line">    -e <span class="string">&quot;s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/8.5.2111|g&quot;</span> \</span><br><span class="line">    -e <span class="string">&quot;s|^#baseurl=http://mirror.centos.org/\$contentdir/\$releasever|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/8.5.2111|g&quot;</span> \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/CentOS-*.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新软件包缓存</span></span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="安装SSH-server"><a href="#安装SSH-server" class="headerlink" title="安装SSH-server"></a>安装SSH-server</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y openssh-server</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-      <categories>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS下编译安装PHP7.3.31</title>
-    <url>/2025/02/25/CetnOS%E5%AE%89%E8%A3%85PHP7.3.31/</url>
+    <url>/2025/02/25/CentOS%E5%AE%89%E8%A3%85PHP7.3.31/</url>
     <content><![CDATA[<h2 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum groupinstall -y  <span class="string">&quot;Development Tools&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y wget gcc libxml2 libxml2-devel openssl openssl-devel bzip2-devel libcurl-devel \</span><br><span class="line">libjpeg-devel libpng-devel freetype-devel gmp-devel sqlite-devel \</span><br><span class="line">libicu-devel libxslt-devel zlib-devel \</span><br><span class="line">curl-devel libjpeg-devel libpng-devel</span><br></pre></td></tr></table></figure></div>
 
 
@@ -43,9 +27,9 @@
 ## 6.1配置 PHP-FPM 服务(可选)
 <div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建 systemd 服务文件</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/systemd/system/php-fpm.service &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit]</span></span><br><span class="line"><span class="string">Description=PHP FastCGI Process Manager</span></span><br><span class="line"><span class="string">After=network.target</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[Service]</span></span><br><span class="line"><span class="string">Type=forking</span></span><br><span class="line"><span class="string">PIDFile=/run/php-fpm/php-fpm.pid</span></span><br><span class="line"><span class="string">ExecStart=/usr/local/php7.3/sbin/php-fpm --fpm-config /usr/local/php7.3/etc/php-fpm.conf</span></span><br><span class="line"><span class="string">ExecReload=/bin/kill -USR2 \$MAINPID</span></span><br><span class="line"><span class="string">Restart=on-failure</span></span><br><span class="line"><span class="string">RestartSec=5s</span></span><br><span class="line"><span class="string">User=www</span></span><br><span class="line"><span class="string">Group=www</span></span><br><span class="line"><span class="string">RuntimeDirectory=php-fpm</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[Install]</span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动并设置开机自启</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl start php-fpm</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> php-fpm</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="6-2启动PHP-FPM服务"><a href="#6-2启动PHP-FPM服务" class="headerlink" title="6.2启动PHP-FPM服务"></a>6.2启动PHP-FPM服务</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /usr/local/php7.3/sbin/php-fpm</span><br><span class="line"><span class="comment"># 验证进程</span></span><br><span class="line">ps aux | grep php-fpm</span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 7.验证安装</span></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># 检查 PHP 版本</span></span><br><span class="line">/usr/local/<span class="variable">$&#123;PHP_VERSION&#125;</span>/bin/php -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试 PHP-FPM 运行状态</span></span><br><span class="line">systemctl status php-fpm</span><br></pre></td></tr></table></figure></div>
+<h2 id="6-2启动PHP-FPM服务"><a href="#6-2启动PHP-FPM服务" class="headerlink" title="6.2启动PHP-FPM服务"></a>6.2启动PHP-FPM服务</h2><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /usr/local/php7.3/sbin/php-fpm</span><br><span class="line"><span class="comment"># 验证进程</span></span><br><span class="line">ps aux | grep php-fpm</span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 6.验证安装</span></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># 检查 PHP 版本</span></span><br><span class="line">/usr/local/<span class="variable">$&#123;PHP_VERSION&#125;</span>/bin/php -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试 PHP-FPM 运行状态</span></span><br><span class="line">systemctl status php-fpm</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="8-集成到-Web-服务器"><a href="#8-集成到-Web-服务器" class="headerlink" title="8.集成到 Web 服务器"></a>8.集成到 Web 服务器</h2><ul>
+<h2 id="7-集成到-Web-服务器"><a href="#7-集成到-Web-服务器" class="headerlink" title="7.集成到 Web 服务器"></a>7.集成到 Web 服务器</h2><ul>
 <li>Nginx</li>
 </ul>
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    # listen 80;</span><br><span class="line">    # server_name localhost;</span><br><span class="line">    # root /var/www/html;</span><br><span class="line">    # index index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">        fastcgi_index index.php;</span><br><span class="line">        include fastcgi_params;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
@@ -60,8 +44,25 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>PHP</tag>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS 8.5.2211安装</title>
+    <url>/2025/02/22/CetnOS%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h3 id="替换安装源"><a href="#替换安装源" class="headerlink" title="替换安装源"></a>替换安装源</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 备份原有的repo文件</span></span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br><span class="line"><span class="comment"># 切换至清华大学的yum源，其中8.5.2111为CentOS版本号</span></span><br><span class="line">sed -e <span class="string">&quot;s|^mirrorlist=|#mirrorlist=|g&quot;</span> \</span><br><span class="line">    -e <span class="string">&quot;s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/8.5.2111|g&quot;</span> \</span><br><span class="line">    -e <span class="string">&quot;s|^#baseurl=http://mirror.centos.org/\$contentdir/\$releasever|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/8.5.2111|g&quot;</span> \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/CentOS-*.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新软件包缓存</span></span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="安装SSH-server"><a href="#安装SSH-server" class="headerlink" title="安装SSH-server"></a>安装SSH-server</h3><div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y openssh-server</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+      <categories>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
